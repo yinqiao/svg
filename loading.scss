@@ -1,0 +1,19 @@
+$radius: 90;// 半径
+$percent: 83/100;// 需要展示的百分比
+
+$circumference: (pi() * 2 * $radius);// 周长
+$stroke_percentage: $circumference - ($percent * $circumference);
+
+#progress { 
+	stroke-dasharray: $circumference; 
+	stroke-dashoffset: $circumference; 
+}
+#progress { 
+	animation: progressAnimation 1600ms linear 500ms forwards; 
+	transition: stroke-dasharray 400ms linear; 
+}
+@keyframes progressAnimation { 
+	to { 
+		stroke-dashoffset: $stroke_percentage; 
+	} 
+}

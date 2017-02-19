@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			.loading-svg {
+				transform: rotate(-90deg);
+			}
+			#progress {
+				stroke-dasharray: 565px;  /*表示虚线描边。可选值为：none, <dasharray>, inherit. 其中，none表示不是虚线；<dasharray>为一个逗号或空格分隔的数值列表。表示各个虚线端的长度。可以是固定的长度值，也可以是百分比值；inherit表继承。*/ /*565为计算出来的周长 : 2*pi*r */
+				stroke-dashoffset: 565px; /*表示虚线的起始偏移。可选值为：<percentage>, <length>, inherit. 百分比值，长度值，继承。*/
+				stroke-opacity: 0.9; /*表示描边透明度。默认是1*/
+				/*animation: progressAnimation 600ms linear infinite;*/
+				animation: progressAnimation 600ms linear 500ms forwards;
+			}
+			@keyframes progressAnimation {
+				/*from {
+					stroke-dashoffset: 100px;
+				}*/
+				to {
+					stroke-dashoffset: 469px; /*百分比 乘以 周长*/
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<svg class="loading-svg" width="240" height="240" xmlns="http:www.w3.org/2000/svg">
+			<circle id="backdrop" r="90" cy="120" cx="120" stroke-width="3" stroke="#333" fill="none"/>
+			<circle id="progress" r="90" cy="120" cx="120" stroke-width="4" stroke="red" fill="none"/>
+		</svg>
+	</body>
+</html>
